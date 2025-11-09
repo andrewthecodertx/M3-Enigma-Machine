@@ -22,18 +22,32 @@ npm install
 
 ## Running the Emulator
 
-Run the emulator using Node.js:
+### Web Interface (Recommended)
+
+The easiest way to use the Enigma machine is through the web interface:
+
+```bash
+node server.js
+```
+
+Then open your browser to `http://localhost:4000`
+
+The web interface provides:
+- Visual Enigma machine with authentic appearance
+- Interactive keyboard and lampboard
+- Real-time rotor position display
+- Plugboard configuration
+- Click keys or use your physical keyboard to encrypt/decrypt
+
+### Command-Line Interface
+
+Run the CLI emulator using Node.js:
 
 ```bash
 node cli.js
 ```
 
-This will process the input text defined in `cli.js` and output the encrypted
-result.
-
-## Usage
-
-The emulator is controlled via a command-line interface. The following commands
+This will start an interactive command-line interface. The following commands
 are available:
 
 - `process <message>`: Encrypts the given message.
@@ -70,19 +84,7 @@ mathematical equations behind its operation, please refer to the
 
 ## API Usage
 
-The project also includes a simple API server using Express.js that allows you to interact with the Enigma machine programmatically.
-
-### Running the API Server
-
-To start the API server, run:
-
-```bash
-node server.js
-```
-
-The API will be listening on `http://localhost:4000`.
-
-### Endpoints
+The server also provides a REST API for programmatic access to the Enigma machine.
 
 #### `POST /process`
 

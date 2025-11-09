@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma Machine Emulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Enigma M3 Machine</h1>
+            <p class="subtitle">World War II Cipher Device Emulator</p>
+        </header>
+
+        <div class="enigma-machine">
+            <!-- Lampboard (Output Display) -->
+            <section class="lampboard">
+                <h2>Lampboard</h2>
+                <div class="lamp-grid">
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="Q"><span>Q</span></div>
+                        <div class="lamp" data-letter="W"><span>W</span></div>
+                        <div class="lamp" data-letter="E"><span>E</span></div>
+                        <div class="lamp" data-letter="R"><span>R</span></div>
+                        <div class="lamp" data-letter="T"><span>T</span></div>
+                        <div class="lamp" data-letter="Z"><span>Z</span></div>
+                        <div class="lamp" data-letter="U"><span>U</span></div>
+                        <div class="lamp" data-letter="I"><span>I</span></div>
+                        <div class="lamp" data-letter="O"><span>O</span></div>
+                    </div>
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="A"><span>A</span></div>
+                        <div class="lamp" data-letter="S"><span>S</span></div>
+                        <div class="lamp" data-letter="D"><span>D</span></div>
+                        <div class="lamp" data-letter="F"><span>F</span></div>
+                        <div class="lamp" data-letter="G"><span>G</span></div>
+                        <div class="lamp" data-letter="H"><span>H</span></div>
+                        <div class="lamp" data-letter="J"><span>J</span></div>
+                        <div class="lamp" data-letter="K"><span>K</span></div>
+                        <div class="lamp" data-letter="L"><span>L</span></div>
+                    </div>
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="P"><span>P</span></div>
+                        <div class="lamp" data-letter="Y"><span>Y</span></div>
+                        <div class="lamp" data-letter="X"><span>X</span></div>
+                        <div class="lamp" data-letter="C"><span>C</span></div>
+                        <div class="lamp" data-letter="V"><span>V</span></div>
+                        <div class="lamp" data-letter="B"><span>B</span></div>
+                        <div class="lamp" data-letter="N"><span>N</span></div>
+                        <div class="lamp" data-letter="M"><span>M</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rotor Display -->
+            <section class="rotors">
+                <h2>Rotors</h2>
+                <div class="rotor-container">
+                    <div class="rotor">
+                        <label>Left</label>
+                        <select id="leftRotorType">
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV" selected>IV</option>
+                            <option value="V">V</option>
+                        </select>
+                        <div class="rotor-window">
+                            <span id="leftRotorPosition">A</span>
+                        </div>
+                        <div class="rotor-controls">
+                            <label>Ring:</label>
+                            <input type="number" id="leftRotorRing" min="0" max="25" value="0">
+                        </div>
+                    </div>
+                    <div class="rotor">
+                        <label>Middle</label>
+                        <select id="middleRotorType">
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III" selected>III</option>
+                            <option value="IV">IV</option>
+                            <option value="V">V</option>
+                        </select>
+                        <div class="rotor-window">
+                            <span id="middleRotorPosition">A</span>
+                        </div>
+                        <div class="rotor-controls">
+                            <label>Ring:</label>
+                            <input type="number" id="middleRotorRing" min="0" max="25" value="0">
+                        </div>
+                    </div>
+                    <div class="rotor">
+                        <label>Right</label>
+                        <select id="rightRotorType">
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV">IV</option>
+                            <option value="V" selected>V</option>
+                        </select>
+                        <div class="rotor-window">
+                            <span id="rightRotorPosition">A</span>
+                        </div>
+                        <div class="rotor-controls">
+                            <label>Ring:</label>
+                            <input type="number" id="rightRotorRing" min="0" max="25" value="0">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Plugboard -->
+            <section class="plugboard">
+                <h2>Plugboard (Steckerbrett)</h2>
+                <div class="plugboard-info">
+                    <p>Enter letter pairs (e.g., AZ BY CX). Maximum 10 pairs.</p>
+                </div>
+                <input type="text" id="plugboardInput" placeholder="AZ BY CX TD SW" maxlength="30">
+                <div id="plugboardError" class="error-message"></div>
+            </section>
+
+            <!-- Keyboard -->
+            <section class="keyboard">
+                <h2>Keyboard</h2>
+                <div class="keyboard-grid">
+                    <div class="keyboard-row">
+                        <button class="key" data-key="Q">Q</button>
+                        <button class="key" data-key="W">W</button>
+                        <button class="key" data-key="E">E</button>
+                        <button class="key" data-key="R">R</button>
+                        <button class="key" data-key="T">T</button>
+                        <button class="key" data-key="Z">Z</button>
+                        <button class="key" data-key="U">U</button>
+                        <button class="key" data-key="I">I</button>
+                        <button class="key" data-key="O">O</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button class="key" data-key="A">A</button>
+                        <button class="key" data-key="S">S</button>
+                        <button class="key" data-key="D">D</button>
+                        <button class="key" data-key="F">F</button>
+                        <button class="key" data-key="G">G</button>
+                        <button class="key" data-key="H">H</button>
+                        <button class="key" data-key="J">J</button>
+                        <button class="key" data-key="K">K</button>
+                        <button class="key" data-key="L">L</button>
+                    </div>
+                    <div class="keyboard-row">
+                        <button class="key" data-key="P">P</button>
+                        <button class="key" data-key="Y">Y</button>
+                        <button class="key" data-key="X">X</button>
+                        <button class="key" data-key="C">C</button>
+                        <button class="key" data-key="V">V</button>
+                        <button class="key" data-key="B">B</button>
+                        <button class="key" data-key="N">N</button>
+                        <button class="key" data-key="M">M</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message Input/Output -->
+            <section class="message-section">
+                <div class="message-input">
+                    <h3>Input Message</h3>
+                    <textarea id="inputMessage" placeholder="Type your message here..."></textarea>
+                    <button id="processBtn" class="process-btn">Encrypt/Decrypt</button>
+                </div>
+                <div class="message-output">
+                    <h3>Output</h3>
+                    <textarea id="outputMessage" readonly></textarea>
+                    <button id="copyBtn" class="copy-btn">Copy to Clipboard</button>
+                </div>
+            </section>
+
+            <!-- Controls -->
+            <section class="controls">
+                <button id="resetBtn" class="control-btn">Reset Rotors</button>
+                <button id="loadSettingsBtn" class="control-btn">Load Default Settings</button>
+            </section>
+        </div>
+
+        <footer>
+            <p>Historical Enigma M3 Emulator • For educational purposes</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
