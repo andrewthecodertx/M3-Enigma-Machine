@@ -4,7 +4,11 @@ class EnigmaUI {
   constructor() {
     this.currentRotorPositions = [0, 0, 0]; // [left, middle, right]
     this.initialRotorPositions = [0, 0, 0];
-    this.API_URL = "http://localhost:4000";
+    // Determine API URL based on current location
+    const currentPath = window.location.pathname;
+    const basePath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+    const mountPath = basePath.includes('/enigma') ? '/enigma' : '';
+    this.API_URL = `${window.location.origin}${mountPath}`;
 
     this.initializeElements();
     this.attachEventListeners();
