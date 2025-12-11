@@ -14,45 +14,6 @@
         </header>
 
         <div class="enigma-machine">
-            <!-- Lampboard (Output Display) -->
-            <section class="lampboard">
-                <h2>Lampboard</h2>
-                <div class="lamp-grid">
-                    <div class="lamp-row">
-                        <div class="lamp" data-letter="Q"><span>Q</span></div>
-                        <div class="lamp" data-letter="W"><span>W</span></div>
-                        <div class="lamp" data-letter="E"><span>E</span></div>
-                        <div class="lamp" data-letter="R"><span>R</span></div>
-                        <div class="lamp" data-letter="T"><span>T</span></div>
-                        <div class="lamp" data-letter="Z"><span>Z</span></div>
-                        <div class="lamp" data-letter="U"><span>U</span></div>
-                        <div class="lamp" data-letter="I"><span>I</span></div>
-                        <div class="lamp" data-letter="O"><span>O</span></div>
-                    </div>
-                    <div class="lamp-row">
-                        <div class="lamp" data-letter="A"><span>A</span></div>
-                        <div class="lamp" data-letter="S"><span>S</span></div>
-                        <div class="lamp" data-letter="D"><span>D</span></div>
-                        <div class="lamp" data-letter="F"><span>F</span></div>
-                        <div class="lamp" data-letter="G"><span>G</span></div>
-                        <div class="lamp" data-letter="H"><span>H</span></div>
-                        <div class="lamp" data-letter="J"><span>J</span></div>
-                        <div class="lamp" data-letter="K"><span>K</span></div>
-                        <div class="lamp" data-letter="L"><span>L</span></div>
-                    </div>
-                    <div class="lamp-row">
-                        <div class="lamp" data-letter="P"><span>P</span></div>
-                        <div class="lamp" data-letter="Y"><span>Y</span></div>
-                        <div class="lamp" data-letter="X"><span>X</span></div>
-                        <div class="lamp" data-letter="C"><span>C</span></div>
-                        <div class="lamp" data-letter="V"><span>V</span></div>
-                        <div class="lamp" data-letter="B"><span>B</span></div>
-                        <div class="lamp" data-letter="N"><span>N</span></div>
-                        <div class="lamp" data-letter="M"><span>M</span></div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Rotor Display -->
             <section class="rotors">
                 <h2>Rotors</h2>
@@ -111,14 +72,43 @@
                 </div>
             </section>
 
-            <!-- Plugboard -->
-            <section class="plugboard">
-                <h2>Plugboard (Steckerbrett)</h2>
-                <div class="plugboard-info">
-                    <p>Enter letter pairs (e.g., AZ BY CX). Maximum 10 pairs.</p>
+            <!-- Lampboard (Output Display) -->
+            <section class="lampboard">
+                <h2>Lampboard</h2>
+                <div class="lamp-grid">
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="Q"><span>Q</span></div>
+                        <div class="lamp" data-letter="W"><span>W</span></div>
+                        <div class="lamp" data-letter="E"><span>E</span></div>
+                        <div class="lamp" data-letter="R"><span>R</span></div>
+                        <div class="lamp" data-letter="T"><span>T</span></div>
+                        <div class="lamp" data-letter="Z"><span>Z</span></div>
+                        <div class="lamp" data-letter="U"><span>U</span></div>
+                        <div class="lamp" data-letter="I"><span>I</span></div>
+                        <div class="lamp" data-letter="O"><span>O</span></div>
+                    </div>
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="A"><span>A</span></div>
+                        <div class="lamp" data-letter="S"><span>S</span></div>
+                        <div class="lamp" data-letter="D"><span>D</span></div>
+                        <div class="lamp" data-letter="F"><span>F</span></div>
+                        <div class="lamp" data-letter="G"><span>G</span></div>
+                        <div class="lamp" data-letter="H"><span>H</span></div>
+                        <div class="lamp" data-letter="J"><span>J</span></div>
+                        <div class="lamp" data-letter="K"><span>K</span></div>
+                        <div class="lamp" data-letter="L"><span>L</span></div>
+                    </div>
+                    <div class="lamp-row">
+                        <div class="lamp" data-letter="P"><span>P</span></div>
+                        <div class="lamp" data-letter="Y"><span>Y</span></div>
+                        <div class="lamp" data-letter="X"><span>X</span></div>
+                        <div class="lamp" data-letter="C"><span>C</span></div>
+                        <div class="lamp" data-letter="V"><span>V</span></div>
+                        <div class="lamp" data-letter="B"><span>B</span></div>
+                        <div class="lamp" data-letter="N"><span>N</span></div>
+                        <div class="lamp" data-letter="M"><span>M</span></div>
+                    </div>
                 </div>
-                <input type="text" id="plugboardInput" placeholder="AZ BY CX TD SW" maxlength="30">
-                <div id="plugboardError" class="error-message"></div>
             </section>
 
             <!-- Keyboard -->
@@ -158,6 +148,16 @@
                         <button class="key" data-key="M">M</button>
                     </div>
                 </div>
+            </section>
+
+            <!-- Plugboard -->
+            <section class="plugboard">
+                <h2>Plugboard (Steckerbrett)</h2>
+                <div class="plugboard-info">
+                    <p>Enter letter pairs (e.g., AZ BY CX). Maximum 10 pairs.</p>
+                </div>
+                <input type="text" id="plugboardInput" placeholder="AZ BY CX TD SW" maxlength="30">
+                <div id="plugboardError" class="error-message"></div>
             </section>
 
             <!-- Message Input/Output -->
