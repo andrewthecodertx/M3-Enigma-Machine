@@ -388,6 +388,18 @@ footer {
 
 footer p {
     font-size: 0.9em;
+    margin: 5px 0;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Animations */

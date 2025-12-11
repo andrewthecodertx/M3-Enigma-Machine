@@ -4,7 +4,7 @@ export default class utils {
    * @returns {string|number}
    */
   static convert(input) {
-    if (typeof input === 'number') {
+    if (typeof input === "number") {
       if (input < 0 || input > 25) {
         throw new Error("Position must be between 0 and 25");
       }
@@ -12,7 +12,7 @@ export default class utils {
       return String.fromCharCode(65 + input);
     }
 
-    if (typeof input === 'string') {
+    if (typeof input === "string") {
       if (input.length !== 1) {
         throw new Error("Input must be a single character");
       }
