@@ -8,7 +8,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,17 +17,17 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-       - name: Copy files
-         run: |
-           scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/developersandbox_xyz/enigma/
+      - name: Copy files
+        run: |
+          scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/developersandbox_xyz/enigma/
 
-       - name: Restart node
-         uses: appleboy/ssh-action@v1.0.3
-         with:
-           host: ${{ secrets.SSH_HOST }}
-           username: ${{ secrets.SSH_USERNAME }}
-           key: ${{ secrets.SSH_PRIVATE_KEY }}
-           script: |
-             cd /var/www/developersandbox_xyz/enigma
-             npm install
-             MOUNT_PATH=/enigma /home/andrew/.nvm/versions/node/v23.11.1/bin/pm2 restart enigma
+      - name: Restart node
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/developersandbox_xyz/enigma
+            npm install
+            MOUNT_PATH=/enigma /home/andrew/.nvm/versions/node/v23.11.1/bin/pm2 restart enigma
