@@ -26,6 +26,10 @@ npm install
 
 The easiest way to use the Enigma machine is through the web interface:
 
+**Live Demo:** https://developersandbox.xyz/enigma/
+
+Or run locally:
+
 ```bash
 node server.js
 ```
