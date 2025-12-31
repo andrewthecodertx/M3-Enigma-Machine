@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,7 +20,7 @@ jobs:
 
       - name: Copy files
         run: |
-          scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/developersandbox_xyz/enigma/
+          scp -o StrictHostKeyChecking=no -r ./* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/andrewthecoder_com/enigma
 
       - name: Restart node
         uses: appleboy/ssh-action@v1.0.3
@@ -28,6 +29,9 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/developersandbox_xyz/enigma
+            cd /var/www/andrewthecoder_com/enigma
             npm install
-            MOUNT_PATH=/enigma /home/andrew/.nvm/versions/node/v23.11.1/bin/pm2 restart enigma
+            ~/.npm-global/bin/pm2 restart enigma --update-env \
+            || ~/.npm-global/bin/pm2 \
+            start /var/www/andrewthecoder_com/enigma/server/server.js --name enigma
+            ~/.npm-global/bin/pm2 save
