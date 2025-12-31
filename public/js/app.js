@@ -1,11 +1,14 @@
-// Enigma Machine Frontend Application
-
 class EnigmaUI {
+  isProduction =
+    window.location.hostname !== "localhost" &&
+    window.location.hostname !== "127.0.0.1";
+
   constructor() {
     this.currentRotorPositions = [0, 0, 0]; // [left, middle, right]
     this.initialRotorPositions = [0, 0, 0];
-    // Determine API URL based on current location
-    this.API_URL = `${window.location.origin}`;
+    this.API_URL = isProduction
+      ? "https://andrewthecoder.com/enigmaserver/"
+      : `${window.location.origin}`;
 
     this.initializeElements();
     this.attachEventListeners();
@@ -235,7 +238,7 @@ class EnigmaUI {
     try {
       const settings = this.getSettings();
 
-      const response = await fetch(`${this.API_URL}/enigma/process`, {
+      const response = await fetch(`${this.API_URL}/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -271,7 +274,7 @@ class EnigmaUI {
     try {
       const settings = this.getSettings();
 
-      const response = await fetch(`${this.API_URL}/enigma/process`, {
+      const response = await fetch(`${this.API_URL}/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
