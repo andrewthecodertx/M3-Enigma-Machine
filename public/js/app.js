@@ -98,7 +98,7 @@ class EnigmaUI {
 
   async loadDefaultSettings() {
     try {
-      const response = await fetch("/data/machineSettings.json");
+      const response = await fetch("data/machineSettings.json");
       const settings = await response.json();
 
       // Set rotors
