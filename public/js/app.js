@@ -235,7 +235,7 @@ class EnigmaUI {
     try {
       const settings = this.getSettings();
 
-      const response = await fetch(`${this.API_URL}/process`, {
+      const response = await fetch(`${this.API_URL}/enigma/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -271,7 +271,7 @@ class EnigmaUI {
     try {
       const settings = this.getSettings();
 
-      const response = await fetch(`${this.API_URL}/process`, {
+      const response = await fetch(`${this.API_URL}/enigma/process`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
