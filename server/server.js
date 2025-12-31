@@ -1,10 +1,10 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import { EnigmaMachine } from "./src/classes/EnigmaMachine.js";
-import PlugBoard from "./src/classes/PlugBoard.js";
-import Rotor from "./src/classes/Rotor.js";
-import Reflector from "./src/classes/Reflector.js";
+import { EnigmaMachine } from "../src/classes/EnigmaMachine.js";
+import PlugBoard from "../src/classes/PlugBoard.js";
+import Rotor from "../src/classes/Rotor.js";
+import Reflector from "../src/classes/Reflector.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,13 +27,13 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // Handle /enigma prefix for deployment
-const mountPath = process.env.MOUNT_PATH || '';
+const mountPath = process.env.MOUNT_PATH || "";
 app.use(mountPath, express.static(path.join(__dirname, "public")));
 app.use(`${mountPath}/data`, express.static(path.join(__dirname, "data")));
 
 // Redirect root to /enigma if MOUNT_PATH is set
 if (mountPath) {
-  app.get('/', (req, res) => {
+  app.get("/", (req, res) => {
     res.redirect(mountPath);
   });
 }
@@ -93,7 +93,7 @@ app.post(`${mountPath}/process`, (req, res) => {
   }
 });
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, "0.0.0.0", () => {
   const baseUrl = `http://localhost:${port}${mountPath}`;
   console.log(`Enigma API listening at ${baseUrl}`);
   console.log(`Web interface available at ${baseUrl}`);
