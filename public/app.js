@@ -8,7 +8,7 @@ class EnigmaUI {
     this.initialRotorPositions = [0, 0, 0];
     this.API_URL = this.isProduction
       ? "https://andrewthecoder.com/enigmaserver"
-      : `${window.location.origin}`;
+      : `http://${window.location.hostname}:4000`;
 
     this.initializeElements();
     this.attachEventListeners();

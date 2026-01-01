@@ -28,8 +28,8 @@ app.use(express.json());
 
 // Handle /enigma prefix for deployment
 const mountPath = process.env.MOUNT_PATH || "";
-app.use(mountPath, express.static(path.join(__dirname, "public")));
-app.use(`${mountPath}/data`, express.static(path.join(__dirname, "data")));
+app.use(mountPath, express.static(path.join(__dirname, "..", "public")));
+app.use(`${mountPath}/data`, express.static(path.join(__dirname, "..", "data")));
 
 // Redirect root to /enigma if MOUNT_PATH is set
 if (mountPath) {
